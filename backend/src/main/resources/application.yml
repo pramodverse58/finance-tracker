@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-stacktrace: always
+
+spring:
+  application:
+    name: finance-tracker-backend
+
+  data:
+    mongodb:
+      uri: mongodb+srv://financeuser:Finance123@cluster0.pjedf.mongodb.net/finance_tracker?retryWrites=true&w=majority&appName=Cluster0
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:c2hoaGhoLXRoaXMtaXMtYS1kZW1vLXNlY3JldC1rZXktcGxlYXNlLXJvdGF0ZS1pdC1pbi1wcm9k}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+
+logging:
+  level:
+    com.financetracker: DEBUG
+    org.springframework.security: WARN
